@@ -1,34 +1,22 @@
 <div metal:use-macro="layout">
     <div metal:fill-slot="content">
-        <p>Please use the form below to create a new location:</p>
-        <form class="form-horizontal" action="/location/create" method="post">
+        <p>Please use the form below to create a new timingload:</p>
+        <form class="form-horizontal" action="/timingload/create" method="post">
             <div class="control-group">
                 <label class="control-label" for="name">Name</label>
                 <div class="controls">
-                    <input type="text" id="name" placeholder="Location Name" name="name">
+                    <input type="text" id="name" placeholder="Timing Load Name" name="name">
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="postcode">Postcode</label>
+                <label class="control-label" for="description">Description</label>
                 <div class="controls">
-                    <input type="text" id="postcode" name="postcode">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="latitude">Latitude</label>
-                <div class="controls">
-                    <input type="text" id="latitude" name="latitude">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="longitude">Longitude</label>
-                <div class="controls">
-                    <input type="text" id="longitude" name="longitude">
+                    <input type="text" id="description" name="description">
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <button type="submit" name='form.submitted' class="btn">Create the Location</button>
+                    <button type="submit" name='form.submitted' class="btn">Create the Timing Load</button>
                 </div>
             </div>
         </form>

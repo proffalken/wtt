@@ -94,10 +94,47 @@ def new(request):
 def create(request):
     if 'form.submitted' in request.params:
         svc = Service(request.params['signal_id'],request.params['operating_characteristics'],request.params['timing_load_id'],request.params['operatin_date_id'])
-        DBSession.add(loc)
+        DBSession.add(svc)
         DBSession.flush()
-        return HTTPFound(location = request.route_url('service_show',
+        return HTTPFound(service = request.route_url('service_show',
                                                       id=svc.id))
+    return {"layout":site_layout(),
+           "page_title": "There has been an error",
+           "error_message": request.params.keys()}
+
+
+##### TimingLoad ROUTES #####
+@view_config(route_name='timingload_index',renderer='templates/timingload/index.pt')
+def index(request):
+    timingload_list = DBSession.query(TimingLoad).order_by(TimingLoad.name.asc()).all()
+    return {"layout":site_layout(),
+            "page_title":"TimingLoads",
+            "timingload_list":timingload_list}
+
+@view_config(route_name='timingload_show',renderer='templates/timingload/show.pt')
+def show(request):
+    md = request.matchdict
+    tl_id = md.get('id',None)
+    if tl_id == None:
+        tl_id = request.POST['id']
+    timingload = DBSession.query(TimingLoad).filter_by(id=tl_id).first()
+    return {"layout":site_layout(),
+            "page_title": "TimingLoad Details for %s" % timingload.name,
+            "timingload":timingload}
+
+@view_config(route_name='timingload_new',renderer='templates/timingload/new.pt')
+def new(request):
+    return {"layout":site_layout(),
+            "page_title": "Create a new timingload"}
+
+@view_config(route_name='timingload_create',renderer='templates/error.pt')
+def create(request):
+    if 'form.submitted' in request.params:
+        tl = TimingLoad(request.params['name'],request.params['description'])
+        DBSession.add(tl)
+        DBSession.flush()
+        return HTTPFound(location = request.route_url('timingload_show',
+                                                      id=tl.id))
     return {"layout":site_layout(),
            "page_title": "There has been an error",
            "error_message": request.params.keys()}

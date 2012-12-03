@@ -1,6 +1,7 @@
 <div metal:use-macro="layout">
     <div metal:fill-slot="content">
-        <p>All services originating at, passing-through or terminating at ${location.name}:</p>
+        <p>Details for Timing Load: ${timingload.name}:</p> 
+	<p>${timingload.description}</p>
     </div>
 </div>
 
