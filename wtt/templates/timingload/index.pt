@@ -1,0 +1,10 @@
+<div metal:use-macro="layout">
+    <div metal:fill-slot="content">
+        <p>Please select a Location from the list below to see all services that originate at, pass-through or terminate there.</p>
+	    <ul>
+                <li tal:repeat="loc location_list"><a href="/location/${loc.id}">${loc.name}</a></li>
+	    </ul>
+        <p>Alternatively, you can <a href="/location/new">create a new location</a>.</p>
+    </div>
+</div>
+

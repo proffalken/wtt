@@ -1,0 +1,10 @@
+<div metal:use-macro="layout">
+    <div metal:fill-slot="content">
+        <p>Please select a Service from the list below to see all locations that it passes through.</p>
+	    <ul>
+                <li tal:repeat="scv service_list"><a href="/service/${svc.id}">${svc.signal_id}</a></li>
+	    </ul>
+        <p>Alternatively, you can <a href="/service/new">create a new service</a>.</p>
+    </div>
+</div>
+

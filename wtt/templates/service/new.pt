@@ -1,0 +1,41 @@
+<div metal:use-macro="layout">
+    <div metal:fill-slot="content">
+        <p>Please use the form below to create a new location:</p>
+        <form class="form-horizontal" action="/service/create" method="post">
+            <div class="control-group">
+                <label class="control-label" for="signal_id">Signal ID</label>
+                <div class="controls">
+                    <input type="text" id="signal_id" placeholder="Service Signal Id" name="signal_id">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="operating_characteristics">Operating Characteristics</label>
+                <div class="controls">
+                    <input type="text" id="operating_characteristics" name="operating_characteristics">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="timing_load_id">Timing Load</label>
+                <div class="controls">
+                    <select name='timing_load_id'>
+                        <option tal:repeat="tl timingload_list" value="${tl.id}">${tl.name}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="operating_date_id">Operation Dates</label>
+                <div class="controls">
+                    <select name='operation_date_id'>
+                        <option tal:repeat="od operation_date_list" value="${odl.id}">${od.start_date} - ${od.end_date}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" name='form.submitted' class="btn">Create the Service</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

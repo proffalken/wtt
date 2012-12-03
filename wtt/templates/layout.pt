@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal" metal:define-macro="layout">
+<head>
+    <title>Working Time Tables - ${page_title}</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <meta name="keywords" content="Working Time Table UK" />
+  <meta name="description" content="A searchable version of the working time table provided by Network Rail" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="${request.static_url('wtt:static/favicon.ico')}" />
+  <link rel="stylesheet" href="${request.static_url('wtt:static/css/bootstrap.css')}" type="text/css" media="screen" charset="utf-8" />
+ <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+</head>
+<body>
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Working Time Tables</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/location">Locations</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<div metal:define-slot="content">
+</div>        
+    </div> <!-- /container -->
+    <script src="${request.static_url('wtt:static/js/bootstrap.js')}"></script>
+</body>
+</html>

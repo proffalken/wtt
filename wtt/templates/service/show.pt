@@ -1,0 +1,6 @@
+<div metal:use-macro="layout">
+    <div metal:fill-slot="content">
+        <p>All services originating at, passing-through or terminating at ${location.name}:</p>
+    </div>
+</div>
+

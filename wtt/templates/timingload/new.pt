@@ -1,0 +1,37 @@
+<div metal:use-macro="layout">
+    <div metal:fill-slot="content">
+        <p>Please use the form below to create a new location:</p>
+        <form class="form-horizontal" action="/location/create" method="post">
+            <div class="control-group">
+                <label class="control-label" for="name">Name</label>
+                <div class="controls">
+                    <input type="text" id="name" placeholder="Location Name" name="name">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="postcode">Postcode</label>
+                <div class="controls">
+                    <input type="text" id="postcode" name="postcode">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="latitude">Latitude</label>
+                <div class="controls">
+                    <input type="text" id="latitude" name="latitude">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="longitude">Longitude</label>
+                <div class="controls">
+                    <input type="text" id="longitude" name="longitude">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" name='form.submitted' class="btn">Create the Location</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

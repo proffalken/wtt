@@ -1,0 +1,7 @@
+<div metal:use-macro="layout">
+    <div metal:fill-slot="content">
+            <p>Welcome to the a searchable interface to the Working Time tables.</p>
+            <p>All of the information on this site has been added by volunteers based on the data <a href="http://www.networkrail.co.uk/browseDirectory.aspx?root=&dir=\Timetables\Working%20timetable%20%28WTT%29">available from Network Rail</a> and is therefore only as accurate as the last update.</p>
+            <p>It is hoped that the community will come together to input and update the data as it is made available each time.</p>
+    </div>
+</div>
