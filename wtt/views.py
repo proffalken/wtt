@@ -28,14 +28,14 @@ def home(request):
 
 ##### LOCATION ROUTES #####
 @view_config(route_name='location_index',renderer='templates/location/index.pt')
-def index(request):
+def location_index(request):
     location_list = DBSession.query(Location).order_by(Location.name.asc()).all()
     return {"layout":site_layout(),
             "page_title":"Locations",
             "location_list":location_list}
 
 @view_config(route_name='location_show',renderer='templates/location/show.pt')
-def show(request):
+def location_show(request):
     md = request.matchdict
     loc_id = md.get('id',None)
     if loc_id == None:
@@ -46,12 +46,12 @@ def show(request):
             "location":location}
 
 @view_config(route_name='location_new',renderer='templates/location/new.pt')
-def new(request):
+def location_new(request):
     return {"layout":site_layout(),
             "page_title": "Create a new location"}
 
 @view_config(route_name='location_create',renderer='templates/error.pt')
-def create(request):
+def location_create(request):
     if 'form.submitted' in request.params:
         loc = Location(request.params['name'],request.params['postcode'],request.params['latitude'],request.params['longitude'])
         DBSession.add(loc)
@@ -64,14 +64,14 @@ def create(request):
 
 ##### SERVICE ROUTES #####
 @view_config(route_name='service_index',renderer='templates/service/index.pt')
-def index(request):
+def service_index(request):
     service_list = DBSession.query(Service).order_by(Service.signal_id.asc()).all()
     return {"layout":site_layout(),
             "page_title":"Services",
             "service_list":service_list}
 
 @view_config(route_name='service_show',renderer='templates/service/show.pt')
-def show(request):
+def service_show(request):
     md = request.matchdict
     svc_id = md.get('id',None)
     if svc_id == None:
@@ -82,7 +82,7 @@ def show(request):
             "service":service}
 
 @view_config(route_name='service_new',renderer='templates/service/new.pt')
-def new(request):
+def service_new(request):
     timingload_list = DBSession.query(TimingLoad).order_by(TimingLoad.name.asc()).all()
     operation_date_list = DBSession.query(OperationDate).order_by(OperationDate.start_date.asc()).all()
     return {"layout":site_layout(),
@@ -91,7 +91,7 @@ def new(request):
             "page_title": "Create a new service"}
 
 @view_config(route_name='service_create',renderer='templates/error.pt')
-def create(request):
+def service_create(request):
     if 'form.submitted' in request.params:
         svc = Service(request.params['signal_id'],request.params['operating_characteristics'],request.params['timing_load_id'],request.params['operatin_date_id'])
         DBSession.add(svc)
@@ -105,14 +105,14 @@ def create(request):
 
 ##### TimingLoad ROUTES #####
 @view_config(route_name='timingload_index',renderer='templates/timingload/index.pt')
-def index(request):
+def timingload_index(request):
     timingload_list = DBSession.query(TimingLoad).order_by(TimingLoad.name.asc()).all()
     return {"layout":site_layout(),
             "page_title":"TimingLoads",
             "timingload_list":timingload_list}
 
 @view_config(route_name='timingload_show',renderer='templates/timingload/show.pt')
-def show(request):
+def timingload_show(request):
     md = request.matchdict
     tl_id = md.get('id',None)
     if tl_id == None:
@@ -123,12 +123,12 @@ def show(request):
             "timingload":timingload}
 
 @view_config(route_name='timingload_new',renderer='templates/timingload/new.pt')
-def new(request):
+def timingload_new(request):
     return {"layout":site_layout(),
             "page_title": "Create a new timingload"}
 
 @view_config(route_name='timingload_create',renderer='templates/error.pt')
-def create(request):
+def timingload_create(request):
     if 'form.submitted' in request.params:
         tl = TimingLoad(request.params['name'],request.params['description'])
         DBSession.add(tl)

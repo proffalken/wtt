@@ -30,6 +30,6 @@ def main(global_config, **settings):
     config.add_route('service_new',   '/service/new')
     config.add_route('service_create','/service/create')
     config.add_route('service_show',  '/service/{id}')
-    config.scan()
+    config.scan('wtt.views')
     return config.make_wsgi_app()
 

@@ -2,7 +2,7 @@
     <div metal:fill-slot="content">
         <p>Please select a Timing Load from the list below to see the details.</p>
 	    <ul>
-                <li tal:repeat="tl timingload_list"><a href="/timingload/${loc.id}">${loc.name}</a></li>
+                <li tal:repeat="tl timingload_list"><a href="/timingload/${tl.id}">${tl.name}</a></li>
 	    </ul>
         <p>Alternatively, you can <a href="/timingload/new">create a new timingload</a>.</p>
     </div>
